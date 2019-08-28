@@ -14,6 +14,7 @@ const app = express();
 // middleware parser
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use('/',express.static('public'))
 
 // middleware serve static files
 app.use('/uploads/avatars', express.static('./uploads/avatars'))
@@ -21,6 +22,7 @@ app.use('/uploads/avatars', express.static('./uploads/avatars'))
 // middleware route handler
 app.use('/api/users', userRouter)
 app.use('/api/trips', tripRouter)
+
 
 const port = process.env.PORT || 5000
 
